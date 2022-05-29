@@ -1,0 +1,40 @@
+﻿<Window x:Class="Microsoft.Samples.Kinect.BodyBasics.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Catch the balls" 
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"  Width="{x:Static SystemParameters.PrimaryScreenWidth}"
+        Loaded="MainWindow_Loaded"
+        Closing="MainWindow_Closing">
+    <Window.Resources>
+        <SolidColorBrush x:Key="MediumGreyBrush" Color= "Gray"
+             />
+    </Window.Resources>
+
+    <Grid Margin="0 0 0 0" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <Viewbox   Grid.Row="1" HorizontalAlignment="Center">
+            <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+        </Viewbox>
+
+        <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">
+            <StatusBarItem Content="{Binding StatusText}" />
+        </StatusBar>
+
+        <Canvas Name="MyCanvas"  Background="DarkGray">
+            <Label Name="txtScore" FontSize="20" FontWeight="Bold" Foreground="GreenYellow" Content="Score: 0" Canvas.Left="22" Canvas.Top="35" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Label Name="txtLastScore" FontSize="20" FontWeight="Bold" Content="Last Score: 0" Foreground="GreenYellow" Canvas.Top="116" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="22" />
+            <Rectangle x:Name="healthBar"  Width="35" Height="200" Fill="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Canvas.Left="29" Canvas.Top="188" RadiusX="17.5" RadiusY="17.5"  />
+        </Canvas>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1"/>
+
+
+
+    </Grid>
+</Window>
